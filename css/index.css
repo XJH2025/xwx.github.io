@@ -73,7 +73,7 @@
 	position: absolute;top:0;z-index:20;display: none;
 }
 #fire1{
-	 position: absolute;margin-top:calc(50%) ; left: calc(10%) ;z-index:20; display: none;
+	 position: absolute;margin-top:calc(48%) ; left: calc(10%) ;z-index:20; display: none;
 }
 #fire2{
 	 position: absolute;margin-top:calc(48%) ; left: calc(42%) ;z-index:20;display: none; 
@@ -152,19 +152,19 @@
 
 /*allPage*/
 #fireworks1{
-	position: absolute;z-index: 99999;  top: calc(0%);  left: calc(0%); display: none; 
+	position: absolute;z-index: 99999;  top: calc(10%);  left: calc(0%); display: none; 
 }
 #fireworks1 img{
 	width: calc(100%);
 }
 #fireworks2{
-	position: absolute;z-index: 99999;  top: calc(0%);  left: calc(35%);  display: none; 
+	position: absolute;z-index: 99999;  top: calc(10%);  left: calc(35%);  display: none; 
 }
 #fireworks2 img{
 	width: calc(100%);
 }
 #fireworks3{
-	position: absolute;z-index: 99999;  top: calc(0%);  left: calc(65%);  display: none; 
+	position: absolute;z-index: 99999;  top: calc(10%);  left: calc(65%);  display: none; 
 }
 #fireworks3 img{
 	width: calc(100%);
