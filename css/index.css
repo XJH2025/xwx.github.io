@@ -1,0 +1,191 @@
+/*page1*/
+#page1{
+	position: absolute;top:0; left: 0; background-color:#fff; width: 100%; height:100%; z-index: 5000;user-select:none;
+}
+.item-box{
+	display: flex;
+	justify-content:space-around;
+	margin-top: calc(2%);
+}
+.flex-img{
+	display: flex;
+	justify-content: center;
+	margin-top: calc(2%);
+}
+.item{
+	width:calc(20%); position:relative;
+}
+.welcome{
+	 width:calc(50%);
+}
+.logo1{
+	width:calc(25%); 
+}
+
+
+
+/*page2*/
+#page2{
+	user-select:none;display: flex; gap:0; position:absolute; width:98%;  padding:1%;
+}
+#left{
+  	width: calc(40%);display:grid;grid-template-rows:repeat(5,25%); grid-template-columns: repeat(5,16%);  row-gap:calc(1%) ; column-gap:calc(3%);  height: 100%;  text-align: center;
+}
+#center{
+	width: calc(50%); position:relative;   
+}
+#right{
+	width:calc(10%);  
+}
+
+/*left*/
+.foods img{
+	width: calc(110%);
+}
+.foods p{
+	font-size: 0.7vw; text-align: center; font-family: Arial, Helvetica, sans-serif;
+}
+.foods:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+	animation: shake 0.5s;
+}
+
+/*center*/
+#bao{
+	position:relative; margin-top:calc(20%) ; 
+}
+#baogai{
+	 position:absolute;top:-500px;z-index:30; 
+ }
+ 
+#baopei{
+	 position:absolute;top:0;z-index:0
+ }
+ 
+#baosheng{
+	 position: absolute;top:0;z-index:20
+ } 
+#bigfire{
+	position: absolute;top:0;z-index:20;display: none;
+} 
+#sfire{
+	position: absolute;top:0;z-index:20;display: none;
+}
+#fire1{
+	 position: absolute;margin-top:calc(50%) ; left: calc(10%) ;z-index:20; display: none;
+}
+#fire2{
+	 position: absolute;margin-top:calc(48%) ; left: calc(42%) ;z-index:20;display: none; 
+}
+#fire3{
+	 position: absolute;margin-top:calc(49%) ; left: calc(75%) ;z-index:20; display: none;
+}
+#gas{
+	 position: absolute;top:0;z-index:20
+ } 
+
+#baogai img{
+	width: calc(100%);  
+}
+#baopei img{
+	width: calc(100%);  
+}
+#bao img{
+	width: calc(100%);  
+}
+#bigfire img{
+	width: calc(100%);  
+}
+#sfire img{
+	width: calc(100%);   
+}
+#fire1 img{
+	width: calc(20%); 
+}
+#fire2 img{
+	width: calc(30%); 
+}
+#fire3 img{
+	width: calc(60%); 
+}
+#gas img{
+	width: calc(100%);  
+}
+#food img{
+	width: calc(20%);  
+}
+
+#food img{
+	position: absolute; top: -400px;  
+}
+
+#tools{
+	user-select:none;display: flex; gap:0; position:absolute;   padding:1%; margin-top: calc(60%); z-index: 1000; width: 100%; justify-content: space-around;
+}
+ 
+#tools img{
+	  width:calc(8%); 
+}
+
+#water{
+	position: absolute;z-index: 10;top:calc(75%); background-color: #fff; opacity: 0.7; height:calc(30%); width: calc(100%);  
+}
+
+ 
+*/
+/*rigtht*/
+
+#right{
+	 
+}
+.logo2 img{
+	width:calc(100%);
+}
+.season{
+	display: flex; justify-content: center;
+}
+.season img{
+	width:calc(30%);
+}
+
+
+/*allPage*/
+#fireworks1{
+	position: absolute;z-index: 99999;  top: calc(0%);  left: calc(0%); display: none; 
+}
+#fireworks1 img{
+	width: calc(100%);
+}
+#fireworks2{
+	position: absolute;z-index: 99999;  top: calc(0%);  left: calc(35%);  display: none; 
+}
+#fireworks2 img{
+	width: calc(100%);
+}
+#fireworks3{
+	position: absolute;z-index: 99999;  top: calc(0%);  left: calc(65%);  display: none; 
+}
+#fireworks3 img{
+	width: calc(100%);
+}
+
+#result{
+	   position: absolute; top: 0; z-index: 9999; display:flex; width: 100%;  justify-content: center;   
+}
+#result_img
+{
+	width:calc(30%);    display: none;
+}
+#result_title{
+	display: none;
+}
+#result_img img{
+	width:calc(100%);  
+}
+.title_result{
+	font-size: 3vw; font-weight: bold;margin-top: calc(4%); 
+}
+.title_result_f{
+	font-size: 1.5vw;  color:#ccc;padding-top:5px;
+}
