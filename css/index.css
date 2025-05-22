@@ -152,19 +152,19 @@
 
 /*allPage*/
 #fireworks1{
-	position: absolute;z-index: 99999;  top: calc(5%);  left: calc(0%); display: none; 
+	position: absolute;z-index: 99999;  top: calc(3%);  left: calc(0%); display: none; 
 }
 #fireworks1 img{
 	width: calc(100%);
 }
 #fireworks2{
-	position: absolute;z-index: 99999;  top: calc(5%);  left: calc(35%);  display: none; 
+	position: absolute;z-index: 99999;  top: calc(3%);  left: calc(35%);  display: none; 
 }
 #fireworks2 img{
 	width: calc(100%);
 }
 #fireworks3{
-	position: absolute;z-index: 99999;  top: calc(5%);  left: calc(65%);  display: none; 
+	position: absolute;z-index: 99999;  top: calc(3%);  left: calc(65%);  display: none; 
 }
 #fireworks3 img{
 	width: calc(100%);
@@ -187,5 +187,5 @@
 	font-size: 3vw; font-weight: bold;margin-top: calc(4%); 
 }
 .title_result_f{
-	font-size: 1.5vw;  color:#333;padding-top:3px;
+	font-size: 1.5vw;  color:#333;margin-top: calc(4%);
 }
