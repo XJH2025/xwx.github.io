@@ -78,7 +78,7 @@
 						<img onclick="openFire(1)" src="img/大火.png"/>
 						<img onclick="openFire(2)" src="img/小火.png"/>
 						<img onclick="completeOK()" src="img/完成.png"/>
-						<img onclick="location.reload();" src="img/重置.png"/>
+						<img onclick="init();" src="img/重置.png"/>
 					</div>
 				</div>	
 			
@@ -135,7 +135,8 @@
 var sh=bf=sf=gg=0;
 var food_type;
 var foods=[]; 
- 
+var names=[];	 
+var audio = document.getElementById('music'); 
 $(document).ready(function() {
 	 
 	
@@ -143,52 +144,12 @@ $(document).ready(function() {
 	$('img').on('dragstart', function(event) {
         event.preventDefault(); // 阻止拖拽的默认行为
     });	 
-		
-	//选中要煲的汤
-	$('.item').on('click', function() {
-		    food_type = $(this).data('content'); 
-	        $(this).animate({
-						top: "-1000px" 
-					}, 2000,function(){
-				$('#page1').fadeOut(500)
-			}); 
-			 switch(food_type)
-			 {
-				 case 1:$("#season").attr('src', 'img/春季.png');break;
-				 case 2:$("#season").attr('src', 'img/夏季.png');break;
-				 case 3:$("#season").attr('src', 'img/秋季.png');break;
-				 case 4:$("#season").attr('src', 'img/冬季.png');break;
-			 }
-	});
-			
-	
-	//选中要煲的药材
-	var names=[1,2,3,4,5,6];	 
-	//var names=["calc(20%)|calc(40%)","calc(40%)|calc(40%)","calc(60%)|calc(40%)","calc(20%)|calc(55%)","calc(40%)|calc(55%)","calc(60%)|calc(55%)"];
-	$('.foods').on('click', function() {
-		  $(this).off('click');
-		  if(names.length!=0){
-					var index=Math.floor(Math.random()*names.length);
-					var name= names[index]
-					var l=t="";
-					var h=$("#center").height();
-					names.splice(index,1);
-					var contentId = $(this).data('content');
-					foods.push(contentId);
-					var speed=2000;
-					
-					switch(name)
-					{
-						case 1:$('#food'+contentId).css('left','calc(20%)');$('#food'+contentId).animate({top:h*0.45+"px"}, speed, function() {$(this).css({top: 'calc(45%)'}); });break;
-						case 2:$('#food'+contentId).css('left','calc(40%)');$('#food'+contentId).animate({top:h*0.45+"px"}, speed, function() {$(this).css({top: 'calc(45%)'}); });break;
-						case 3:$('#food'+contentId).css('left','calc(60%)');$('#food'+contentId).animate({top:h*0.45+"px"}, speed, function() {$(this).css({top: 'calc(45%)'}); });break;
-						case 4:$('#food'+contentId).css('left','calc(20%)');$('#food'+contentId).animate({top:h*0.3+"px"}, speed, function() {$(this).css({top: 'calc(30%)'}); });break;
-						case 5:$('#food'+contentId).css('left','calc(40%)');$('#food'+contentId).animate({top:h*0.3+"px"}, speed, function() {$(this).css({top: 'calc(30%)'}); });break;
-						case 6:$('#food'+contentId).css('left','calc(60%)');$('#food'+contentId).animate({top:h*0.3+"px"}, speed, function() {$(this).css({top: 'calc(30%)'}); });break;
-					}		 
-			}
-	});
-	
+
+    $(document).on('contextmenu', function(event) {
+         event.preventDefault(); // 阻止默认的上下文菜单
+     });
+	 
+	init();
 	
 })
 
@@ -229,11 +190,7 @@ function openFire(v){
 }
 
 
- $(document).ready(function() {
-     $(document).on('contextmenu', function(event) {
-         event.preventDefault(); // 阻止默认的上下文菜单
-     });
- });
+ 
 function completeOK(){
 	check();
 }
@@ -280,14 +237,11 @@ function completeOK(){
 			 	$("#fireworks1").css("display","block");	 
 			 	$("#fireworks2").css("display","block");	 
 			 	$("#fireworks3").css("display","block");	 
-			 	 var audio = document.getElementById('music');
+			 	 
 			 	  
-			 		if(audio.paused){
+			 	 
 			 	      audio.play();
-			 		 }else
-			 		 {
-			 			 audio.pause();
-			 		 }
+			 		 
 			$(".title_result").html("挑战成功");		 
 			$("#result_xwx").attr("src", "img/win.gif");
 			$(".title_result_f").html("您煲的"+dnamey[food_type-1]+"太美味了！！！");
@@ -295,5 +249,76 @@ function completeOK(){
 		  
 	 }
  }
+ 
+ 
+ 
+ function init(){
+	 $("*").stop(true,true);
+	 
+ 	sh=bf=sf=gg=0;
+ 	food_type=0;
+ 	foods=[]; 
+ 	names=[1,2,3,4,5,6];
+ 	$("#result_img").css("display","none");
+ 	$("#result_title").css("display","none");
+ 	$("#fire1").css("display","none");
+ 	$("#fire2").css("display","none");
+ 	$("#fire3").css("display","none");	
+	$("#fireworks1").css("display","none");
+	$("#fireworks2").css("display","none");
+	$("#fireworks3").css("display","none");	
+ 	$(".title_result_f").html();
+ 	$("#food img").css("top","-400px");
+ 	$("#water").css("top","calc(75%)");
+ 	$("#baogai").css("top","-500px");
+	
+	$(".item").css("top","0");
+ 	audio.load();
+	
+	$('.foods').off('click');
+ 	//选中要煲的汤
+ 	$('.item').on('click', function() {
+ 		    food_type = $(this).data('content'); 
+ 	        $(this).animate({
+ 						top: "-1000px" 
+ 					}, 2000,function(){
+ 				$('#page1').fadeOut(500)
+ 			}); 
+ 			 switch(food_type)
+ 			 {
+ 				 case 1:$("#season").attr('src', 'img/春季.png');break;
+ 				 case 2:$("#season").attr('src', 'img/夏季.png');break;
+ 				 case 3:$("#season").attr('src', 'img/秋季.png');break;
+ 				 case 4:$("#season").attr('src', 'img/冬季.png');break;
+ 			 }
+ 	});		
+ 	//选中要煲的药材
+ 	$('.foods').on('click', function() {
+ 		  $(this).off('click');
+		  
+ 		  if(names.length!=0){
+ 					var index=Math.floor(Math.random()*names.length);
+ 					var name= names[index]
+ 					var l=t="";
+ 					var h=$("#center").height();
+ 					names.splice(index,1);
+ 					var contentId = $(this).data('content');
+ 					foods.push(contentId);
+ 					var speed=2000;
+ 					
+ 					switch(name)
+ 					{
+ 						case 1:$('#food'+contentId).css('left','calc(20%)');$('#food'+contentId).animate({top:h*0.45+"px"}, speed, function() {$(this).css({top: 'calc(45%)'}); });break;
+ 						case 2:$('#food'+contentId).css('left','calc(40%)');$('#food'+contentId).animate({top:h*0.45+"px"}, speed, function() {$(this).css({top: 'calc(45%)'}); });break;
+ 						case 3:$('#food'+contentId).css('left','calc(60%)');$('#food'+contentId).animate({top:h*0.45+"px"}, speed, function() {$(this).css({top: 'calc(45%)'}); });break;
+ 						case 4:$('#food'+contentId).css('left','calc(20%)');$('#food'+contentId).animate({top:h*0.3+"px"}, speed, function() {$(this).css({top: 'calc(30%)'}); });break;
+ 						case 5:$('#food'+contentId).css('left','calc(40%)');$('#food'+contentId).animate({top:h*0.3+"px"}, speed, function() {$(this).css({top: 'calc(30%)'}); });break;
+ 						case 6:$('#food'+contentId).css('left','calc(60%)');$('#food'+contentId).animate({top:h*0.3+"px"}, speed, function() {$(this).css({top: 'calc(30%)'}); });break;
+ 					}		 
+ 			}
+ 	});	
+	$("#page1").fadeIn(500);
+ }
+ 
  
 </script>
