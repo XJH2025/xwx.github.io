@@ -196,6 +196,7 @@ function completeOK(){
 }
    
  function check(){
+	 
 	 $("#result_img").css("display","block");
 	 $("#result_title").css("display","block");
 	 if(sh==0){
@@ -259,6 +260,8 @@ function completeOK(){
  	food_type=0;
  	foods=[]; 
  	names=[1,2,3,4,5,6];
+	$(".title_result").html("挑战失败");	
+	$("#result_xwx").attr("src", "img/loser.gif");
  	$("#result_img").css("display","none");
  	$("#result_title").css("display","none");
  	$("#fire1").css("display","none");
