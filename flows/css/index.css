@@ -1,0 +1,22 @@
+			
+			#img{
+				width: 980px; height: 680px; margin: 0 auto;   
+			}
+			#score{
+				width: 980px;   margin: 0 auto; background-color: white;  height: 60px; border-bottom: 2px solid #6b9e2a;
+			}
+			#score img{
+				float: left; margin:10px 20px; width: 40px;
+			}
+			#topic{
+				width: 980px; height: 60px; margin: 0 auto; background-color: white;  line-height: 60px;  
+			}
+			#lbl{
+				padding-left: 25px; font-size: 20px; color: #a00;  font-weight: 300;
+			}
+			#key{
+			width: 980px; height: 60px; margin: 0 auto; background-color: white;  line-height: 60px;
+			}
+			.key{
+				border: 1px solid #ccc;   float: left;   text-align: center; line-height: 40px; padding:0 25px; margin-left: 25px; color: #aaa;
+			}

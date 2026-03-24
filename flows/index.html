@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/init.css">
+		<link rel="stylesheet" type="text/css" href="css/index.css">
+		<style>
+
+
+		</style>
+	<script type="text/javascript" src="js/jquery-4.0.0.js"></script>
+	</head>
+	<body style="background-color: #ccc;">
+		
+		<div id="img" style="background: url('img/1.jpg'); background-repeat: no-repeat;background-size: cover;"></div>
+		
+		<div id="score">
+			<img id="s1" src="img/mf.png" />
+			<img id="s2" src="img/mf.png" />
+			<img id="s3" src="img/mf.png" />
+			<img id="s4" src="img/mf.png" />
+			<img id="s5" src="img/mf.png" />
+			<img id="s6" src="img/mf.png" />
+			<img id="s7" src="img/mf.png" />
+			<img id="s8" src="img/mf.png" />
+			<img id="s9" src="img/mf.png" />
+			<img id="s10" src="img/mf.png" />
+		</div>
+		<div style="clear: both;"></div>
+		<div id="topic">
+			<label id="lbl">1、这是什么花？</label>
+		</div>
+		
+		<div id="key">
+			<label id="A" class="key" onclick="sel('A')">木绵花</label>
+			<label id="B" class="key" onclick="sel('B')">木绵花</label>
+			<label id="C" class="key" onclick="sel('C')">木绵花</label>
+			<label id="D" class="key" onclick="sel('D')">木绵花</label>
+		</div>
+	
+	</body>
+	
+</html>
+<script type="text/javascript">
+	var curr=0;
+	var score=0;
+	var item=[
+				["1、这是什么花","1木绵花","1菊花","1百合花","1梅花","1木绵花"],
+				["2、这是什么花","2木绵花","2菊花","2百合花","2梅花","2木绵花"],
+				["3、这是什么花","1木绵花","1菊花","1百合花","1梅花","1木绵花"],
+				["4、这是什么花","2木绵花","2菊花","2百合花","2梅花","2木绵花"],
+				["5、这是什么花","1木绵花","1菊花","1百合花","1梅花","1木绵花"],
+				["6、这是什么花","2木绵花","2菊花","2百合花","2梅花","2木绵花"],
+				["7、这是什么花","1木绵花","1菊花","1百合花","1梅花","1木绵花"],
+				["8、这是什么花","2木绵花","2菊花","2百合花","2梅花","2木绵花"],
+				["9、这是什么花","1木绵花","1菊花","1百合花","1梅花","1木绵花"],
+				["10、这是什么花","2木绵花","2菊花","2百合花","2梅花","2木绵花"]
+			 ]	 
+	function init(i){
+		$("#img").css("backgroundImage", "url(img/"+(i+1)+".jpg)");
+		$("#lbl").text(item[i][0]);
+		$("#A").text(item[i][1]);
+		$("#B").text(item[i][2]);
+		$("#C").text(item[i][3]);
+		$("#D").text(item[i][4]);
+	}
+	function sel(i){ 
+		var key=$("#"+i).text(); 
+		if(item[curr][5]==key){
+			 
+			$("#s"+(curr+1)).attr('src',"img/m.png");
+		}
+		curr++;
+		if(curr<item.length){
+			init(curr);
+		}else{
+			alert('over');
+		}
+		
+	}
+	init(curr);
+</script>

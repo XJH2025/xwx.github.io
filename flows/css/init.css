@@ -1,0 +1,20 @@
+			td, body, th, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
+			    padding: 0
+			}
+			
+			body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
+			    margin: 0;
+				user-select: none; /* 标准语法 */
+				    -webkit-user-select: none; /* Safari */
+				    -moz-user-select: none; /* Firefox */
+				    -ms-user-select: none; /* Internet Explorer/Edge */
+			}
+			
+			h1, h2, h3, h4, h5, h6 {
+			    font-size: 100%;
+			    font-weight: 400
+			}
+			
+			ul, ol {
+			    list-style: none
+			}
