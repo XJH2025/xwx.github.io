@@ -6,7 +6,38 @@
 		<link rel="stylesheet" type="text/css" href="css/init.css">
 		<link rel="stylesheet" type="text/css" href="css/index.css">
 		<style>
-
+			/* 核心：全屏遮罩样式 */
+			.overlay {
+			  /* 固定定位，不随滚动移动 */
+			  position: fixed;
+			  top: 0;
+			  left: 0;
+			  /* 铺满全屏 */
+			  width: 100vw;
+			  height: 100vh;
+			  /* 半透明黑色背景（可修改透明度/颜色） */
+			  background: rgba(0, 0, 0, 0.7);
+			  /* 置于最顶层 */
+			  z-index: 9999;
+			  /* 默认隐藏 */
+			  display: none;
+			  /* 居中内部内容 */
+			  justify-content: center;
+			  align-items: center;
+			}
+			
+			/* 遮罩显示时的类 */
+			.overlay.show {
+			  display: flex;
+			}
+			
+			/* 遮罩内的内容框（可自定义） */
+			.overlay-content {
+			  background: white;
+			  padding: 40px;
+			  border-radius: 8px;
+			  text-align: center;
+			}
 
 		</style>
 	<script type="text/javascript" src="js/jquery-4.0.0.js"></script>
@@ -16,7 +47,7 @@
 		<div id="img" style="background: url('img/1.jpg'); background-repeat: no-repeat;background-size: cover;"></div>
 		
 		<div id="score">
-			<img id="s1" src="img/m.png" />
+			<img id="s1" src="img/mf.png" />
 			<img id="s2" src="img/mf.png" />
 			<img id="s3" src="img/mf.png" />
 			<img id="s4" src="img/mf.png" />
@@ -38,6 +69,20 @@
 			<label id="C" class="key" onclick="sel('C')">木绵花</label>
 			<label id="D" class="key" onclick="sel('D')">木绵花</label>
 		</div>
+	
+	<!--------------------------遮罩----------------------------!-->	
+							<div class="overlay" id="overlay" onclick="hideOverlay()">
+							  <div class="overlay-content">
+								<h1 style="font-size: 40px; font-weight: bold;">恭喜您获得</h1>
+								<p id="ms" style="font-size: 40px; font-weight: bold; color: #c3bc4c;"></p>
+								 <img src="img/m.png" style="width: 200px;" />
+							  </div>
+							</div>
+							
+						 
+	<!--------------------------遮罩-end---------------------------!-->				
+	
+	
 	
 	</body>
 	
@@ -68,16 +113,43 @@
 	function sel(i){ 
 		var key=$("#"+i).text(); 
 		if(item[curr][5]==key){
-			 
 			$("#s"+(curr+1)).attr("src", "img/m.png");
+			score++;
 		}
 		curr++;
 		if(curr<item.length){
 			init(curr);
 		}else{
-			alert('over');
+			$("#ms").text(score+"颗");
+			showOverlay();
+			curr=0;
+			score=0;
 		}
 		
 	}
 	init(curr);
+	
+	
+	
+	
+	/*------------------------遮罩----------------------------*/
+	const overlay = document.getElementById('overlay');
+	
+	// 显示遮罩
+	function showOverlay() {
+	  overlay.classList.add('show');
+	  // 禁止页面滚动
+	  document.body.style.overflow = 'hidden';
+	}
+	
+	// 隐藏遮罩
+	function hideOverlay() {
+	  overlay.classList.remove('show');
+	  // 恢复页面滚动
+	  document.body.style.overflow = '';
+	  curr=0;
+	  init(curr);
+	  $("#score img").attr("src", "img/mf.png");
+	}
+	/*------------------------遮罩-end---------------------------*/
 </script>
